@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% load bootstrap %}
+{% block content %}
+
+<div class="container ">
+  <div class="flex-container ">
+    <div> 
+    <nav class="navbar bg-body-tertiary">
+        <div >
+          <a class="navbar-brand" href="#">
+            <header class="box-texto">
+              <h1 class="title">MVHS</h1>
+              <span class="descricao">Informações</span>
+          </header></a>
+        </div>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<div class="flex-container ">
+    <div>
+      <h6 class="text-center">
+        <a href="{% url 'administrativo:admin' %}" class="btn btn-secondary button_adm">
+         <img src="{% static '/media/job.png'%}" alt=""/><br>Administrativo</a></h6>
+    </div><br>
+      
+    <div>
+      <h6 class="text-center">
+        <a href="{% url 'manutencao:manu' %}"class="btn btn-secondary button_manutencao">
+          <img src="{% static '/media/worker.png'%}" alt=""/><br>Manutenção</a></h6>
+        </div><br>  
+      <div>
+
+      <h6 class="text-center">
+        <a href="{% url 'frota:frota' %}"class="btn btn-secondary button_frota">
+          <img src="{% static '/media/semi.png'%}" alt=""/><br>Frota</a></h6>
+          
+        </div><br>
+
+    <div>
+      <h6 class="text-center">
+        <a href="{% url 'epis:epis' %}"class="btn btn-secondary button_epis">
+          <img src="{% static '/media/workers.png'%}" alt=""/><br>EPIs</h6></a>
+          </div><br>
+    <div>
+
+     <h6 class="text-center">
+      <a  href="{% url 'abastecimento:abastecimento' %}"class="btn btn-secondary button_abastecimento">
+        <img src="{% static '/media/gauge2.png'%}" alt=""/><br>Abastecimento</a></h6>
+      </div><br>
+  </div>
+
+<nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <i><time datetime=""
+       class="text-center"
+      id="current-time"></time></i>
+  </div>
+</nav>
+<br><br><br><br>
+</div>
+</div>
+<div class='container text-center p-2 rounded-4'>
+  {% if user.is_authenticated %}
+    <div class="container align-center">
+      <a href="{% url 'administrativo:logout'%}"class='button_manutencao'>Sair: {{user.username}}</a>
+    </div>
+  {% endif %}
+  </nav>
+</div><br><br><br><br>
+{% block css %}
+
+{% endblock css %}
+
+{% endblock content %}
+
+{% block js %}
+
+{% endblock js %}

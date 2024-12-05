@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% load bootstrap %}
+{% block css %}
+
+{% endblock css %}
+
+{% block content %}
+<nav class="navbar" style="background-color: #e3f2fd;">
+  <h1>MVHS informações</h1>
+</nav>
+
+
+<nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="button_adm" href="/">Retornar</a>
+    <!--<p><a href="imprimir"type="submit" class="btn btn-primary" >Imprimir</a></p>-->
+  </div>
+</nav>
+
+<div class="container-fluid container text-center p-2 text-primary-emphasis bg-danger-subtle border border-primary-subtle  rounded-4">
+    <form>
+        <input class="form-control " value=''type="number" name="qtd" placeholder="" aria-label="Search">
+        <br>
+        <button class="button_pesquisar " type="submit">Pesquisar TD</button>
+    </form><br>
+    <form>
+      <input class="form-control"value=''type="search" name="qp" placeholder="" aria-label="Search">
+      <br>
+      <button class="button_pesquisar " type="submit">Placa</button>
+    </form><br>
+    <form>
+      <input class="form-control" value=''type="date" name="qd" placeholder="" aria-label="Search">
+      <br>
+      <button class="button_pesquisar" type="submit">Data</button>
+    </form><br>
+
+  <div class="container text-center p-2 text-primary-emphasis bg-danger-subtle border border-primary-subtle  rounded-4">
+      <div class="row align-items-center">
+        <div class="col">
+          <div class="card" style="width: 22rem;">
+              <div class="card-body">
+                <h5 class="card-title">Medias</h5>
+                  <h6>Quantidade de kg : {{soma_context.sobj}}</h6>
+                  <h6>Media de kg : {{soma_context.cont}}</h6>
+                  <br>
+                  <h6>Media de p2 : {{soma_context.csp2}}</h6>
+                  <h6>Media de p5 : {{soma_context.csp5}}</h6>
+                  <h6>Media de p8 : {{soma_context.csp8}}</h6>
+                  <h6>Media de p13 : {{soma_context.csp13}}</h6>
+                  <h6>Media de p20 : {{soma_context.csp20}}</h6>
+                  <h6>Media de p45 : {{soma_context.csp45}}</h6>
+              </div>
+          </div>
+        </div>
+        <div class="container"><br></div>
+        <div class="col">
+          <div class="card" style="width: 22rem;">
+              <div class="card-body">
+                <h5 class="card-title">Medias complementares</h5>
+                  <br>
+                  <h6>Mediana : {{soma_context.calc_mediana}}</h6>
+                  <h6>Mediana baixa : {{soma_context.calc_mediana_baixa}}</h6>
+                  <h6>Mediana alta : {{soma_context.calc_mediana_alta}}</h6>
+                  <h6>Media aritimetica : {{soma_context.calc_media_aritimetica}}</h6>
+                  <h6>Media harmonica : {{soma_context.calc_media_Harmonica}}</h6>
+              </div>
+          </div>
+        </div>
+        <div class="container"><br></div>
+        <div class="col">
+          <div class="card" style="width: 22rem;">
+              <div class="card-body">
+                <h5 class="card-title">Resultados</h5>
+                  <h6>Soma de km :{{soma_context.cskm}} </h6>
+                  <h6>Media km por viagem :{{soma_context.mediacskm}} </h6>
+                  <h6>Quantidade de viagens :{{soma_context.contador}} </h6>
+                  <h6>Maximo Kg :{{soma_context.soma_tara}} </h6>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class='container-fluid align-center'>
+<h4 class="align-center">Soma de resultados</h4>
+  <table id="customers" class='table table-striped'>
+              <thead>
+                  <th>p2</th>
+                  <th>p5</th>
+                  <th>p8</th>
+                  <th>p13</th>
+                  <th>p20</th>
+                  <th>p45</th>
+              </thead>
+              <tr>
+                  <td>{{soma_context.sp2}}</td>
+                  <td>{{soma_context.sp5}}</td>
+                  <td>{{soma_context.sp8}}</td>
+                  <td>{{soma_context.sp13}}</td>
+                  <td>{{soma_context.sp20}}</td>
+                  <td>{{soma_context.sp45}}</td>
+              </tr>
+  </table>
+ </div>
+</div>
+<ul>
+  <table class="table table-hover">
+
+  {% for Revenda in object_list %}
+  <tr><th scope="col">ID</th><td>{{ Revenda.id }}</td></tr>
+  <tr><th scope="col">Ação</th><td>{{ Revenda.acao }}</td>
+    <th scope="col">TD</th><td>{{ Revenda.link_td }}</td></tr>
+
+    <tr><th scope="col">Veiculo</th><td>{{ Revenda.link_caminhao }}</td>
+    <th scope="col">km</th><td>{{ Revenda.km }}</td></tr>
+
+    <tr><th scope="col">Motorista</th><td>{{ Revenda.link_motorista }}</td>
+    <th scope="col">Ajudante</th><td>{{ Revenda.link_Ajudante }}</td></tr>
+
+    <tr><th scope="col">Cliente</th><td>{{ Revenda.cliente }}</td>
+    <th scope="col">Codigo Cliente</th><td>{{ Revenda.codigo_cliente }}</td></tr>
+
+    <tr><th scope="col">Nf 1</th><td>{{ Revenda.nota_1 }}</td>
+    <th scope="col">Nf 2</th><td>{{ Revenda.nota_2 }}</td></tr>
+
+    <tr><th scope="col">p2</th><td>{{ Revenda.p2 }}</td></tr>
+    <tr><th scope="col">p5</th><td>{{ Revenda.p5 }}</td></tr>
+    <tr><th scope="col">p8</th><td>{{ Revenda.p8 }}</td></tr>
+    <tr><th scope="col">p13</th><td>{{ Revenda.p13 }}</td></tr>
+    <tr><th scope="col">p20</th><td>{{ Revenda.p20 }}</td></tr>
+    <tr><th scope="col">p45</th><td>{{ Revenda.p45 }}</td></tr>
+
+    <tr><th scope="col">Data</th><td>{{ Revenda.entrada }}</td>
+    <th scope="col">Horario</th><td>{{Revenda.horario}}</td></tr>
+
+    <tr><th scope="col">OBS</th><td>{{ Revenda.OBS }}</td></tr>
+
+    <tr><th scope="col" colspan="2"></th><td></td></tr>
+    <tr><th scope="col" colspan="2"></th><td></td></tr>
+
+{% empty %}
+  <li>Não há itens na tabela!</li>
+{% endfor %}
+    </tbody>
+  </table>
+</ul>
+{% include "includes/pagination.html" %}
+{% endblock content %}
+
+{% block js %}
+
+{% endblock js %}

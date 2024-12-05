@@ -1,0 +1,117 @@
+.button_frota {
+    padding: 10px 15px;
+    border-radius: 30px;
+    border: none;
+    background-image: linear-gradient(#256a8a, #35fe32);
+    border: solid 1px #f69f9f;
+    border-right-width: 4px;
+    border-bottom-width: 4px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+    align-self: center;
+    width: 360px;
+    cursor: pointer;
+  }
+.button_manutencao {
+    padding: 10px 15px;
+    border-radius: 30px;
+    border: none;
+    background-image: linear-gradient(#b41e1e, #fbd6d6);
+    border: solid 1px #e43b11;
+    border-right-width: 4px;
+    border-bottom-width: 4px;
+    color: rgb(109, 7, 7);
+    text-transform: uppercase;
+    font-weight: 700;
+    align-self: center;
+    width: 360px;
+    cursor: pointer;
+  }
+.button_adm {
+    padding: 5px 20px;
+    border-radius: 30px;
+    border: none;
+    background-image: linear-gradient(#253a45, #0ba9f2);
+    border: solid 1px #046c2a;
+    border-right-width: 4px;
+    border-bottom-width: 4px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+    align-self: center;
+    width: 360px;
+    cursor: pointer;
+
+  }
+
+.button_cargas {
+    padding: 5px 20px;
+    border-radius: 30px;
+    border: none;
+    background-image: linear-gradient(#1d1e1a, #534932);
+    border: solid 1px #046c2a;
+    border-right-width: 4px;
+    border-bottom-width: 4px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+    align-self: center;
+    width: 360px;
+    cursor: pointer;
+
+}
+
+.button_epis {
+  padding: 5px 20px;
+  border-radius: 30px;
+  border: none;
+  background-image: linear-gradient(#d35c0d, #534932);
+  border: solid 1px #046c2a;
+  border-right-width: 4px;
+  border-bottom-width: 4px;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 700;
+  align-self: center;
+  width: 360px;
+  cursor: pointer;
+
+}
+
+
+
+.button_abastecimento {
+  padding: 5px 20px;
+  border-radius: 30px;
+  border: none;
+  background-image: linear-gradient(#14d30d, #e0a00a);
+  border: solid 1px #046c2a;
+  border-right-width: 4px;
+  border-bottom-width: 4px;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 700;
+  align-self: center;
+  width: 360px;
+  cursor: pointer;
+
+}
+
+
+.button_pesquisar {
+  padding: 5px 20px;
+  border-radius: 30px;
+  border: none;
+  background-image: linear-gradient(#d30d5f, #534932);
+  border: solid 1px #046c2a;
+  border-right-width: 4px;
+  border-bottom-width: 4px;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 700;
+  align-self: center;
+  width: 360px;
+  cursor: pointer;
+
+}

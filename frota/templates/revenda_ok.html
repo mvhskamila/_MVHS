@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% load bootstrap %}
+{% block css %}
+
+  <style>
+    .form-control {
+      margin: 10px;
+    }
+  </style>
+
+
+
+{% endblock css %}
+
+{% block content %}
+<nav class="navbar" style="background-color: #e3f2fd;">
+  <h1>MVHS informações</h1>
+  <br><br><br><br>
+   <p><a class="button_adm" type='button'href="{% url 'frota:formulario_revenda'%}">Cadastrar nova revenda</a></p>
+</nav>
+<br>
+<div class='container text-center p-2 text-primary-emphasis bg-danger-subtle border border-primary-subtle  rounded-3'>
+  <h1 class='text-center'>Revenda cadastrada com sucesso!</h1>
+</div>
+
+<nav class="navbar" style="background-color: #e3f2fd;">
+
+   <p><a class="button_adm" type='button'href="/">Retornar ao inicio</a></p>
+</nav>
+{% endblock content %}
+
+{% block js %}
+
+{% endblock js %}

@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% load bootstrap %}
+{% block css %}
+{% endblock css %}
+
+{% block content %}
+<nav class="navbar" style="background-color: #e3f2fd;">
+  <h1>MVHS informações</h1>
+</nav>
+<div class='container text-center p-2 text-primary-emphasis bg-danger-subtle border border-primary-subtle  rounded-3'>
+
+
+<nav class="navbar bg-body-tertiary">
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="container-fluid">
+    <a class="button_adm" href="/">Retornar</a>
+  </div>
+</nav>
+
+<h1 class='text-center'>Lista de Cargas</h1>
+
+
+  {% for Cargas in object_list %}
+
+  <tr>
+    <div class="card text-bg-secondary mb-3" style="max-width: 22rem;">
+      <div class="card-header bg-transparent border-success text-success"><h4>{{ Cargas.Carga_Placa}}</h4></div>
+      <div class="card-body ">
+        <table class="table table-success table-striped">
+       <tr>
+        <th>p2:</th><td>{{ Cargas.p2}}</td> 
+        <th>p5:</th><td>{{ Cargas.p5}}</td>
+        <th>p8:</th><td>{{ Cargas.p8}}</td></tr>
+        <tr>
+        <th>p13:</th><td>{{ Cargas.p13}}</td> 
+        <th>p20:</th><td>{{ Cargas.p20}}</td>
+        <th>p45:</th><td>{{ Cargas.p45}}</td></tr>
+        
+
+        <p>Cor :{{ Cargas.cor}}</p>
+        </table>
+      </div>
+      <div class="card-footer bg-transparent border-success">{{ Cargas.data}}</div>
+    </div>
+    
+
+  </tr>
+{% empty %}
+  <li>Não há itens na tabela!</li>
+{% endfor %}
+    </tbody>
+
+  </table>
+</ul>
+{% include "includes/pagination.html" %}
+</div>
+
+{% endblock content %}
+
+{% block js %}
+
+{% endblock js %}

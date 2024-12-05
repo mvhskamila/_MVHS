@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{%load static%}
+{% block css %}
+
+  <style>
+    .form-control {
+      margin: 16px;
+    }
+  </style>
+
+{% endblock css %}
+{% block content %}
+
+
+<div class="container-center p-2">
+    <nav class="navbar bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <header class="box-texto">
+            <h1 class="title">MVHS</h1>
+            <span class="descricao">Informações</span>
+        </header></a>
+      </div>
+    </nav>
+</div>
+
+<div class='container text-center p-2 rounded-4'>
+
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+
+          <p><a class="button_frota" type="button"href="Cargas_lista">Ver Cargas de Hoje</a></p>
+          <p><a class="button_frota" type="button"href="formulario_td">Adicionar TD</a></p>
+          <p><a class="button_frota" type="button"href="formulario_revenda">Revenda</a></p>
+
+          <div class='container text-center p-2 text-primary-emphasis bg-danger-subtle border border-primary-subtle  rounded-4'>
+              <p><a class="button_manutencao" type="button"href="formulario_manutencao">Pedido de Manutenção</a></p>
+              <p><a class="button_manutencao" type="button"href="agendamento_lista">Manutenção agendada</a></p>
+              <a class="navbar-brand" href="/"><h4>Controle de Manutenção</h4></a>
+              <p><a class="button_manutencao" type="button"href="manutencao_lista">lista de pedidos</a></p>
+              <p><a class="button_manutencao" type="button"href="formulario_Manutencao_Resposta">Ações</a></p>
+          </div>
+          <a class="navbar-brand" type="button"href="/"><h4>Cargas </h1></a>
+
+          <p><a class="button_cargas" href="reiniciar_tabela_carga">Reinicie a tabela para um novo Dia</a></p>
+          <p><a class="button_cargas" type="button"href="formulario_Cargas">Cargas de Hoje</a></p>
+
+
+            <a class="navbar-brand" type="button"href="/"><h4> Administrativo </h1></a>
+          <p><a class="button_adm" type="button"href="formulario_caminhao">Cadastro de caminhões</a></p>
+          <p><a class="button_adm" type="button"href="formulario_motorista">Cadastro de motorista</a></p>
+          <p><a class="button_adm" type="button"href="formulario_ajudante">Cadastro de Ajudante</a></p>
+          <p><a class="button_adm" type="button"href="pesquisar_td">Resultados</a></p>
+
+          <p><a href="dados_veiculo"type="button" class="button_adm">Veiculo lista</a></p>
+          <p><a href="dados_td"type="button" class="button_adm">TD lista</a></p>
+          <p><a href="dados_revenda"type="button" class="button_adm">Revenda lista</a></p>
+          <p><a href="pesquisar_view"type="button" class="button_adm">pesquisa entre datas</a></p>
+          <p><a href="pes_imprimir"type="button" class="button_adm">imprimir</a></p>
+
+        <a class="navbar-brand" type="button"href="/"><h4> Abastecimento </h1></a>
+        <div class='container text-center p-2 text-primary-emphasis bg-danger-subtle border border-primary-subtle  rounded-4'>
+          <p><a href="formulario_Abastecimento"type="button" class='button_frota'>Abastecimento</a></p>
+          <p><a href="Abastecimento_lista"type="button" class="button_frota">Abastecimento lista</a></p>
+          <p><a href="abastecimento_imprimir"type="button" class="button_frota">Abastecimento imprimir</a></p>
+        </div>
+        </div>
+    </nav>
+  </div>
+</div>
+      {% if user.is_authenticated %}
+        <div class="container align-center">
+          <a href='logout'class='button_manutencao'>Sair: {{user.username}}</a>
+        </div>
+      {% endif %}
+
+{% endblock content %}

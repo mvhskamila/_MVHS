@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% load bootstrap %}
+{% block css %}
+
+  <style>
+    .form-control {
+      margin: 10px;
+    }
+  </style>
+
+
+{% endblock css %}
+
+{% block content %}
+<nav class="navbar" style="background-color: #e3f2fd;">
+  MVHS informações
+   <p><a class="button_adm" type='button'href="/">Retornar</a></p>
+</nav>
+<br>
+<div class='container text-center p-2 text-primary-emphasis bg-danger-subtle border border-primary-subtle  rounded-3'>
+  <form method="GET">
+      <div class="container">
+        <h1>Imprimir tablela de dados entre datas</h1>
+        <div class="input-group">
+            <div class="container">
+            <span class="input-group-text" id="basic-addon1" style="display:ruby-text ;">Data inicial</span>    
+            <input class="form-control "aria-describedby="basic-addon1" name="d1" type="date" ><br>
+            </div>
+            <div class="container">
+            <span class="input-group-text" id="basic-addon2" style="display:ruby-text ;">Data final</span>
+            <input class="form-control " aria-describedby="basic-addon2"name="d2" type="date" ><br>
+            </div>
+        </div>
+          <br>
+          <div class="conteiner">
+            <button class="button_frota" type="submit">{{acao}}</button>
+        </div>
+       </div>
+      </div>
+
+    </form>
+
+<ul>
+
+
+
+</div>
+{% endblock content %}
+
+{% block js %}
+
+{% endblock js %}

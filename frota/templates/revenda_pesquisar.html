@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% load bootstrap %}
+{% block css %}
+{% endblock css %}
+
+{% block content %}
+<nav class="navbar" style="background-color: #e3f2fd;">
+  MVHS informações
+   <p><a class="button_adm" type='button'href="/">Retornar</a></p>
+</nav>
+<br>
+<div class='container text-center p-2 text-primary-emphasis bg-danger-subtle border border-primary-subtle  rounded-3'>
+  <form method="GET">
+      <div class="container">
+        <h6>Data inicial e final</h6>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <input class="form-control "aria-describedby="basic-addon1" name="d1" type="date" ><br>
+          </div>  
+          <br>
+          <div class="input-group-prepend">
+            <input class="form-control " aria-describedby="basic-addon2"name="d2" type="date" ><br>
+          </div>
+        </div>
+          <br>
+          <div class="conteiner">
+            <button class="button_frota" type="submit">{{acao}}</button>
+        </div>
+       </div>
+      </div>
+
+    </form>
+
+<ul>
+  <br>
+  <h6>Pesquisa entre as datas:</h6><h6>{{texto}}</h6>
+  <br>
+  <table class="table table-hover">
+
+  {% for Revenda in object_list %}
+
+  <tr><th scope="col">TD</th><td>{{ Revenda.link_td }}</td></tr>
+  <tr><th scope="col">Veiculo</th><td>{{ Revenda.link_caminhao }}</td></tr>
+  <tr><th scope="col">Motorista</th><td>{{ Revenda.link_motorista }}</td></tr>
+  <tr><th scope="col">Ajudante</th><td>{{ Revenda.link_Ajudante }}</td></tr>
+  <tr><th scope="col">km</th><td>{{ Revenda.km }}</td></tr>
+  <tr><th scope="col">Cliente</th><td>{{ Revenda.cliente }}</td></tr>
+  <tr><th scope="col">Codigo Cliente</th><td>{{ Revenda.codigo_cliente }}</td></tr>
+  <tr><th scope="col">Nf 1</th><td>{{ Revenda.nota_1 }}</td></tr>
+  <tr><th scope="col">Nf 2</th><td>{{ Revenda.nota_2 }}</td></tr>
+  <tr><th scope="col">p2</th><td>{{ Revenda.p2 }}</td></tr>
+  <tr><th scope="col">p5</th><td>{{ Revenda.p5 }}</td></tr>
+  <tr><th scope="col">p8</th><td>{{ Revenda.p8 }}</td></tr>
+  <tr><th scope="col">p13</th><td>{{ Revenda.p13 }}</td></tr>
+  <tr><th scope="col">p20</th><td>{{ Revenda.p20 }}</td></tr>
+  <tr><th scope="col">p45</th><td>{{ Revenda.p45 }}</td></tr>
+  <tr><th scope="col">Data</th><td>{{ Revenda.entrada }}</td></tr>
+  <tr><th scope="col">Horario</th><td>{{Revenda.horario}}</td></tr>
+  <tr><th scope="col">OBS</th><td>{{ Revenda.OBS }}</td></tr>
+  <tr><th scope="col"></th><td>.</td></tr>
+
+{% empty %}
+  <li>Não há itens na tabela!</li>
+{% endfor %}
+    </tbody>
+  </table>
+  <br>
+</ul>
+{% include "includes/pagination.html" %}
+</div>
+{% endblock content %}
+
+{% block js %}
+
+{% endblock js %}

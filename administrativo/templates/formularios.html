@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% load bootstrap %}
+
+{% block css %}
+
+  <style>
+    .form-control {
+      margin: 10px;
+    }
+  </style>
+
+
+
+{% endblock css %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<div class="container">
+ <h1>MVHS informações</h1>
+      <form method="POST" novalidate>
+        {% csrf_token %}
+        <legend style="border-bottom: 1px solid #e5e5e5;">{{title}}</legend>
+
+        <div class="row">
+          <div class="col-sm-6">
+            {% for field in form.visible_fields %}
+              <div class="form-group{% if field.errors %} has-error {% endif%}">
+                <label for="{{ field.id_for_label }}">
+                  {% if field.field.required %}
+                    <span class="required">{{ field.label }} </span>
+                  {% else %}
+                    {{ field.label }}
+                  {% endif %}
+                </label>
+                {% render_field field class="form-control" %}
+                {% for error in field.errors %}
+                  <span class="text-muted">{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% endfor %}
+            {{ formset.management_form }}
+          </div>
+        </div>
+          <div class="row float-center  p-2 text-primary-emphasis bg-danger-subtle border border-primary-subtle  rounded-3">
+          <div class="col-sm-6" style="margin-top: 10px;">
+            <div class="form-inline buttons">
+              <button class="button_frota" value="Save">
+                <i class="fa fa-floppy-o"></i>
+                Salvar
+              </button><br><br><br><br>
+              <a href="/" class="button_adm">
+                <i class="fa fa-sign-in"></i>
+                Retornar ao inicio
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endif %}
+{% endblock content %}
+
+{% block js %}
+
+{% endblock js %}

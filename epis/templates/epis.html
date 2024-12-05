@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{%load static%}
+{% block css %}
+
+  <style>
+    .form-control {
+      margin: 16px;
+    }
+  </style>
+
+{% endblock css %}
+{% block content %}
+
+
+<div class="container-center p-2">
+    <nav class="navbar bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <header class="box-texto">
+            <h1 class="title">MVHS</h1>
+            <span class="descricao">Informações</span>
+        </header></a>
+      </div>
+    </nav>
+</div>
+
+<div class='container text-center p-2 rounded-4'>
+
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+          <div class='flex-container text-center p-2 text-danger-emphasis bg-danger-subtle border border-danger-subtle  rounded-4'>
+
+          <p><a class="button_abastecimento" type="button"href="{% url 'epis:formulario_epis'%}">EPIs</a></p>
+          <p><a class="button_abastecimento" type="button"href="{% url 'epis:formulario_uniformes'%}">Uniformes</a></p>
+          <p><a class="button_abastecimento" type="button"href="{% url 'epis:formulario_outros'%}">Outros</a></p>
+</div></div>
+      </nav>
+</div>
+<div class='flex-container text-center p-2 text-danger-emphasis bg-danger-subtle border border-danger-subtle  rounded-4'>
+
+<div class="container-center p-2">
+<nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="button_adm" href="/">Retornar</a>
+  </div>
+  <br><br>
+  <br><br>
+</nav>
+      {% if user.is_authenticated %}
+        <div class="container align-center">
+          <a href="{% url 'administrativo:logout'%}"class='button_manutencao'>Sair: {{user.username}}</a>
+        </div>
+      {% endif %}
+      </nav>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% load bootstrap %}
+{% block css %}
+
+  <style>
+    .form-control {
+      margin: 16px;
+    }
+  </style>
+
+<link rel="stylesheet" href="{% static 'css/estilo2.css' %}">
+
+{% endblock css %}
+
+{% block content %}
+<nav class="navbar" style="background-color: #e3f2fd;">
+  MVHS informações
+</nav>
+<div class='container text-center p-2 text-primary-emphasis bg-danger-subtle border border-primary-subtle  rounded-3'>
+<br>
+<nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="button_adm" href="/">Retornar</a>
+  </div>
+</nav>
+
+<h1 class='text-center'>Dados dos agendamentos</h1>
+<ul>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Responsavel</th>
+        <th scope="col">Agendado para</th>
+        <th scope="col">Data da resposta</th>
+        <th scope="col">Hora</th>
+        <th scope="col">Placa</th>
+
+
+      </tr>
+    </thead>
+    <tbody>
+
+  {% for Manutencao in object_list %}
+
+  <tr>
+
+    <td>{{ Manutencao.responsavel}}</td>
+    <td>{{ Manutencao.Agendado}}</td>
+    <td>{{ Manutencao.data}}</td>
+    <td>{{ Manutencao.horario}}</td>
+     <td>{{ Manutencao.link_agendado }}</td>
+     <tr>
+      <th scope="col">Descrição</th><td colspan="5">{{ Manutencao.descricao}}</td>
+     </tr><br>
+  </tr>
+{% empty %}
+  <li>Não há itens na tabela!</li>
+{% endfor %}
+    </tbody>
+  </table>
+</ul>
+{% include "includes/pagination.html" %}
+</div>
+{% endblock content %}
+
+{% block js %}
+
+{% endblock js %}

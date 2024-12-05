@@ -1,0 +1,4 @@
+body {   /* Background pattern from Toptal Subtle Patterns */
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgb(209, 207, 248) 10%, rgba(145,145,149,1) 35%, rgb(128, 169, 177) 100%);
+}

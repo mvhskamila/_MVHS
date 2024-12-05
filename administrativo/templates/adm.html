@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{%load static%}
+{% block css %}
+
+  <style>
+    .form-control {
+      margin: 16px;
+    }
+  </style>
+
+{% endblock css %}
+{% block content %}
+
+
+
+    <nav class="navbar bg-body-tertiary align-center ">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <header class="box-texto">
+            <h1 class="title">MVHS</h1>
+            <span class="descricao">Informações</span>
+        </header></a>
+      </div>
+    </nav>
+
+
+<div class='container text-center p-2 rounded-4'>
+
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+
+          <div class='flex-container text-center p-2 text-danger-emphasis bg-danger-subtle border border-danger-subtle  rounded-4'>
+          <a class="navbar-brand" type="button"href="/"><h4>Cargas </h1></a>
+          <p><a class="button_cargas" href="{% url 'administrativo:reiniciar_tabela_carga' %}">Reinicie a tabela para um novo Dia</a></p>
+          <p><a class="button_cargas" type="button"href="{% url 'administrativo:formulario_cargas' %}">Cargas de Hoje</a></p>
+          </div><br><br>
+
+          <div class='flex-container text-center p-2 text-danger-emphasis bg-danger-subtle border border-danger-subtle  rounded-4'>
+
+          <a class="navbar-brand" type="button"href="/"><h4> Administrativo </h1></a>
+          <p><a class="button_adm" type="button"href="{% url 'administrativo:formulario_caminhao' %}">Cadastro de caminhões</a></p>
+          <p><a class="button_adm" type="button"href="{% url 'administrativo:formulario_motorista' %}">Cadastro de motorista</a></p>
+          <p><a class="button_adm" type="button"href="{% url 'administrativo:formulario_ajudante' %}">Cadastro de Ajudante</a></p>
+          </div><br><br>
+
+          <div class='flex-container text-center p-2 text-danger-emphasis bg-danger-subtle border border-danger-subtle  rounded-4'>
+          <a class="navbar-brand" type="button"href="/"><h4> Pesquisas </h1></a>
+          <p><a href="{% url 'administrativo:pesquisar_revenda' %}"type="button" class="button_adm">pesquisa entre datas</a></p>         
+          <p><a class="button_adm" type="button"href="{% url 'administrativo:pesquisar_td' %}">Resultados</a></p>
+          <p><a href="{% url 'administrativo:pes_imprimir' %}"type="button" class="button_adm">Revendas imprimir</a></p>
+          <p><a href="{% url 'abastecimento:abastecimento_imprimir' %}"type="button" class="button_adm">Abastecimento imprimir</a></p>
+          </div><br><br>
+          
+          <div class='flex-container text-center p-2 text-danger-emphasis bg-danger-subtle border border-danger-subtle  rounded-4'>
+          <a class="navbar-brand" type="button"href="/"><h4> Listas </h1></a>
+          <p><a href="{% url 'administrativo:caminhao_lista' %}"type="button" class="button_adm">Veiculo lista</a></p>
+          <p><a href="{% url 'administrativo:motorista_lista' %}"type="button" class="button_adm">Motorista lista</a></p>
+          <p><a href="{% url 'administrativo:ajudante_lista' %}"type="button" class="button_adm">Ajudante lista</a></p>
+          <p><a href="{% url 'frota:td_list' %}"type="button" class="button_adm">TD lista</a></p>
+          <p><a href="{% url 'frota:revenda_lista' %}"type="button" class="button_adm">Revenda lista</a></p>
+
+          </div>
+  
+    </nav>
+  </div>
+</div>
+
+<br>
+      <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="button_adm" href="/">Retornar</a>
+        </div>
+      </nav>
+<br>      
+      {% if user.is_authenticated %}
+      <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+          <a href='logout'class='button_manutencao'>Sair: {{user.username}}</a>
+        </div><br>
+      </nav>
+      {% endif %}
+{% endblock content %}

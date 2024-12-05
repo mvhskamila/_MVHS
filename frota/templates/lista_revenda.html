@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% load bootstrap %}
+{% block css %}
+{% endblock css %}
+
+{% block content %}
+<nav class="navbar" style="background-color: #e3f2fd;">
+  MVHS informações
+</nav>
+<div class='container text-center p-2 text-primary-emphasis bg-danger-subtle border border-primary-subtle  rounded-3'>
+
+
+<nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="button_adm" href="/">Retornar</a>
+  </div>
+</nav>
+
+<h1 class='text-center'>Lista de Revendas</h1>
+<ul>
+
+
+  {% for obj in object_list %}
+
+  <tr>
+    <div class="card text-bg-secondary mb-3" style="max-width: 22rem;">
+      <div class="card-header bg-transparent border-success text-success">
+        <h4>{{ obj.link_caminhao}}</h4>
+        <h6>TD:  {{ obj.link_td}}</h6>
+        <h6>Entrada:  {{ obj.entrada}}</h6>
+        <h6>Horario:  {{ obj.horario}}</h6>
+    </div>
+      <div class="card-body ">
+        <table class="table table-success table-striped">
+       <tr>
+        <th>Ação:</th><td>{{ obj.acao}}</td></tr>
+        <th>km:</th><td>{{ obj.km}}</td></tr>
+        <th>Cliente:</th><td>{{ obj.cliente}}</td></tr>
+        <th>Codigo:</th><td>{{ obj.codigo_cliente}}</td></tr>
+        <th>Nota 1:</th><td>{{ obj.nota_1}}</td></tr>
+        <th>Nota 2:</th><td>{{ obj.nota_2}}</td></tr>
+        <th>P2:</th><td>{{ obj.p2}}</td></tr>
+        <th>P5:</th><td>{{ obj.p5}}</td></tr>
+        <th>P8:</th><td>{{ obj.p8}}</td></tr>
+        <th>P13:</th><td>{{ obj.p13}}</td></tr>
+        <th>P20:</th><td>{{ obj.p20}}</td></tr>
+        <th>P45:</th><td>{{ obj.p45}}</td></tr>
+        <th>link_motorista:</th><td>{{ obj.link_motorista}}</td></tr>
+        <th>link_ajudante:</th><td>{{ obj.link_Ajudante}}</td></tr>
+        
+        </table>
+      </div>
+
+    </div>
+    
+
+  </tr>
+{% empty %}
+  <li>Não há itens na tabela!</li>
+{% endfor %}
+    </tbody>
+
+  </table>
+</ul>
+{% include "includes/pagination.html" %}
+</div>
+
+{% endblock content %}
+
+{% block js %}
+
+{% endblock js %}

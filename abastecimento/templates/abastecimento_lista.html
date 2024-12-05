@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% load bootstrap %}
+{% block css %}
+{% endblock css %}
+
+{% block content %}
+<nav class="navbar" style="background-color: #e3f2fd;">
+  MVHS informações
+</nav>
+<div class='container text-center p-2 text-primary-emphasis bg-danger-subtle border border-primary-subtle  rounded-3'>
+
+
+<nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="button_adm" href="/">Retornar</a>
+  </div>
+</nav>
+
+<h1 class='text-center'>Lista de Abastecimentos</h1>
+<ul>
+
+
+  {% for obj in object_list %}
+
+  <tr>
+    <div class="card text-bg-secondary mb-3" style="max-width: 22rem;">
+      <div class="card-header bg-transparent border-success text-success"><h4>{{ obj.Abastecimento_placa}}</h4></div>
+      <div class="card-body ">
+        <table class="table table-success table-striped">
+       <tr>
+        <th>motorista:</th><td>{{ obj.Nome_motorista}}</td></tr>
+        <th>km:</th><td>{{ obj.km}}</td></tr>
+        <th>horimetro:</th><td>{{ obj.horimetro}}</td></tr>
+        <th>hodometro:</th><td>{{ obj.hodometro}}</td></tr>
+        <th>litros:</th><td>{{ obj.Litros}}</td></tr>
+        <th>data:</th><td>{{ obj.data}}</td></tr>
+        <th>horario:</th><td>{{ obj.hora}}</td></tr>
+        <th>reponsavel abastecimento:</th><td>{{ obj.responsave_abastecimento}}</td></tr>
+        
+        
+        </table>
+      </div>
+      
+    </div>
+    
+
+  </tr>
+{% empty %}
+  <li>Não há itens na tabela!</li>
+{% endfor %}
+    </tbody>
+
+  </table>
+</ul>
+{% include "includes/pagination.html" %}
+</div>
+
+{% endblock content %}
+
+{% block js %}
+
+{% endblock js %}

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{%load static%}
+{% block css %}
+
+  <style>
+    .form-control {
+      margin: 16px;
+    }
+  </style>
+
+{% endblock css %}
+{% block content %}
+<div class='container text-center p-2 text-primary-emphasis bg-danger-subtle border border-primary-subtle  rounded-4'>
+  <div class="card">
+    <div class="card-header">
+      MVHS informações
+    </div>
+    <div class="card-body">
+
+  <h4>Reinicie a tabela para o uso de hoje,  </h4>
+  <h4>isso mantem a tabela, com os registros somente no dia atual.  </h4>
+  <br>
+  <h4>Caso não deseje reiniciar a tabela os registros serão ordenados por data, horas e minutos.  </h4>
+  <form action="" method="GET">
+  <p><a class="button_cargas" name='reiniciar'type="button"href="{% url 'administrativo:del_itens_tab_carga'%}">Reiniciar a tabela </a></p>
+  </form>
+  <h4>{{texto}}</h4>
+</div>
+</div>
+
+</div>
+<div class='container text-center p-2 text-primary-emphasis bg-danger-subtle border border-primary-subtle  rounded-4'>
+    <p><a class="button_adm" type="button"href="{% url 'administrativo:formulario_cargas' %}">Cargas de Hoje</a></p>
+
+    <nav class="navbar bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="button_adm" href="/">Retornar</a>
+      </div>
+    </nav>
+</div>
+{% endblock content %}

@@ -1,0 +1,26 @@
+.descricao{
+    display: flex;
+    font-size:2.0em;
+    color: #141313;
+    font-family: 'open_sansregular';
+    letter-spacing: 2px;
+    text-align: start;
+    gap: 20px;
+    transition:6s;
+
+}
+
+@keyframes motion{
+    0%{
+        color: #000000;
+        margin-bottom: -42px;
+    }
+    30%{
+        letter-spacing: 30px;
+        margin-bottom: -42px;
+        }
+    85%{
+        letter-spacing: 5px;
+        margin-bottom: -42px;
+    }
+}
